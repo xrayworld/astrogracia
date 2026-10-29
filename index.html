@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Salletronaut Center</title>
+  </head>
+  <style>
+    html{ width:100%;height:100%; }
+    *{ box-sizing: border-box; }
+    body,input,button{ font-family: sans-serif; padding: 16px; font-size: 16px; }
+    body{     background: radial-gradient(rgb(15, 15, 0), rgb(0, 0, 15)) no-repeat;
+    background-size: 100% 100% !important;
+    overflow: hidden;
+    width: 100%;
+    height: 100%; }
+    #astronaut_add{ width:100%; }
+    input,button{ float:left; border: 1px dashed black; font-weight:bold; }
+    input{ width: 25%; }
+    button{ width: 25%; cursor:pointer; }
+
+    #background
+    {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      color: yellow;
+      font-size: 9px;
+      animation: back ease-in-out 9s infinite;
+    }
+    @keyframes back
+    {
+      0%{ width: 100%; font-size: 10px; transform: translate(0,0); opacity: 1; }
+      50%{ width: 150%; font-size: 20px; transform: translate(-25%,-25%); opacity: 0; }
+      100%{ width: 100%; font-size: 10px; transform: translate(0,0); opacity: 1; }
+    }
+
+    h1
+    {
+      color:white;
+      width: 100%;
+      text-align: center;
+      letter-spacing: 9px;
+    }
+    #astronaut_arr{ color:white; }
+
+    #astronaut_arr{
+      margin: 50px 0;
+      width: 100%;
+      line-height: 1.5;
+      color:white;
+      li{
+        list-style: none;
+        text-align: center;
+        width: fit-content;
+        margin: 16px auto;
+        display: block;
+        padding: 16px;
+        background: black;
+        border-radius: 16px;
+      }
+    }
+
+    .exp_off{ opacity: 0.3; }
+
+    .li_label{ color: rgb(85,85,85); }
+    .li_name{ color: rgb(255,255,0); }
+    .li_rol{ color: rgb(255,255,85); }
+    .li_{ font-weight: bold; }
+
+    #bot
+    {
+      text-align:center; 
+      margin: 100px 0 0 0;
+      font-weight: bold;
+      opacity: 0;
+    }
+
+    .popup{ animation: popup ease-in 2s both; }
+    @keyframes popup
+    {
+      0%{ font-size: 48px; opacity:1; }
+      100%{ font-size: 1px; opacity:0; }
+    }
+
+    #filter{
+      padding: 8px 16px;
+      display: block;
+      margin: 0 auto;
+      background: black;
+      color: white;
+    }
+
+  </style>
+  <script src='./main.js' defer></script>
+  <body>
+  
+    <h1>THE ASTROGRACIATS</h1>
+
+    <div id='astronaut_add'>
+      <input id='inp_name' type='text' placeholder='name' required>
+      <input id='inp_rol' type='text' placeholder='rol' required>
+      <input id='inp_exp' type='number' placeholder='experience (number)' min='1' max='10'required>
+      <button id='inp_but'>Add astronaut</button>
+    </div>
+
+    <p id="bot">.</p>
+
+    <select id="filter">
+      <option value='all'>All</option>
+      <option value='pilote'>Pilote</option>
+    </select>
+
+    <ul id='astronaut_arr'></ul>
+
+    <p id='background'></p>
+
+  </body>
+</html>
